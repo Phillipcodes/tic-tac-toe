@@ -1,0 +1,96 @@
+body {
+  background-color: #060607 ; /* Hintergrundfarbe des Body */
+  color: white;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+}
+
+.score-board {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.d-none {
+  display: none;
+}
+
+button {
+  background-color: #00B0EF; /* Hintergrundfarbe */
+  border: none; /* Kein Rand */
+  color: white; /* Textfarbe */
+  padding: 15px 32px; /* Innenabstand */
+  text-align: center; /* Textausrichtung */
+  text-decoration: none; /* Keine Unterstreichung */
+  display: inline-block; /* Inline-Block-Element */
+  font-size: 16px; /* Schriftgröße */
+  margin: 4px 2px; /* Außenabstand */
+  cursor: pointer; /* Zeiger */
+  border-radius: 12px; /* Abgerundete Ecken */
+}
+
+button:hover {
+  background-color: #49b4db;
+}
+
+#content {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.winning-cell {
+  background: linear-gradient(to bottom right, transparent 49.5%, black 49.5%, black 50.5%, transparent 50.5%);
+}
+
+table {
+  border-collapse: collapse;
+  margin: 0 auto; /* Zentrierung der Tabelle */
+}
+td {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  font-size: 24px;
+  border: 5px solid white; /* Innen-Trennlinien */
+  cursor: pointer;
+}
+td:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* Obere Trennlinien der inneren Zellen entfernen */
+tr:first-child td {
+  border-top: none;
+}
+/* Linke Trennlinien der inneren Zellen entfernen */
+tr td:first-child {
+  border-left: none;
+}
+/* Untere Trennlinien der inneren Zellen entfernen */
+tr:last-child td {
+  border-bottom: none;
+}
+/* Rechte Trennlinien der inneren Zellen entfernen */
+tr td:last-child {
+  border-right: none;
+}
+
+.winning-row {
+  border-top: 3px solid white;
+  border-bottom: 3px solid white;
+}
