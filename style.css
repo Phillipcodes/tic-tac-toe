@@ -28,6 +28,17 @@ h1 {
   display: none;
 }
 
+.opacity {
+  opacity: 10%;
+}
+
+.player-turn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+}
+
 button {
   background-color: #00B0EF; /* Hintergrundfarbe */
   border: none; /* Kein Rand */

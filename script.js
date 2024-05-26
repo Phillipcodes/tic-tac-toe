@@ -25,6 +25,9 @@ let crossScore = 0; // Punktzahl für cross
 function init() {
     render();
     updateScores();
+    crossDisplayTurn();
+    circleDisplayTurn();
+ 
 }
 
 function render() {
@@ -55,7 +58,14 @@ function render() {
 function handleClick(cell, index) {
     if (fields[index] === null && !gameFinished) {
         fields[index] = currentPlayer;
-        cell.innerHTML = currentPlayer === 'circle' ? generateCircleSVG() : generateCrossSVG();
+        if (currentPlayer === 'circle') {
+            cell.innerHTML = generateCircleSVG();
+            crossDisplayTurn();
+        } else {
+            cell.innerHTML = generateCrossSVG();
+            circleDisplayTurn();
+        }
+        
         cell.onclick = null;
 
         if (isGameFinished()) {
@@ -92,22 +102,19 @@ function getWinningCombination() {
     return null;
 }
 
-function generateCircleSVG() {
+function generateCircleSVG(width = 70,height = 70) {
     const color = '#FF0000';
-    const width = 70;
-    const height = 70;
 
     return `<svg width="${width}" height="${height}">
               <circle cx="35" cy="35" r="30" stroke="${color}" stroke-width="5" fill="none">
                 <animate attributeName="stroke-dasharray" from="0 188.5" to="188.5 0" dur="0.4s" fill="freeze" />
               </circle>
             </svg>`;
-}
+} 
 
-function generateCrossSVG() {
+function generateCrossSVG(width = 70,height = 70) {
     const color = '#00B0EF';
-    const width = 70;
-    const height = 70;
+  
 
     const svgHtml = `
       <svg width="${width}" height="${height}">
@@ -178,4 +185,35 @@ function restartGame() {
 }
 
 // Initialisiere das Spiel beim Laden der Seite
+
+function circleDisplayTurn () {
+    let displayCircle = document.getElementById('display-circle');
+    let displayCross = document.getElementById('display-cross');
+    const width = 70;
+    const height = 70;
+    displayCircle.innerHTML = generateCircleSVG(width,height)
+    displayCircle.classList.remove('opacity');
+    displayCross.classList.add('opacity');
+
+
+}
+
+function crossDisplayTurn() {
+    let displayCircle = document.getElementById('display-circle');
+    let displayCross = document.getElementById('display-cross');
+    const width = 70;
+    const height = 70;
+    generateCrossSVG(width,height)
+    displayCross.innerHTML = generateCrossSVG(width,height);
+    displayCircle.classList.add('opacity');
+    displayCross.classList.remove('opacity');
+}
+
+function equalStart () {
+    let displayCircle = document.getElementById('display-circle');
+    let displayCross = document.getElementById('display-cross');
+    displayCircle.classList.add('opacity');
+   
+}
+
 

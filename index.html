@@ -6,10 +6,19 @@
     <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body onload="render()">
+<body onload="init()">
     <h1>TIC TAC TOE </h1>
-    <div class="score-board"><p id="circleScore">Circle: 0</p>
+    <div class="player-turn">
+        <div id="display-circle">
+    </div>
+    <div id="display-cross"></div>
+</div>
+    
+    <div class="score-board">
+        <p id="circleScore">Circle: 0</p>
         <p id="crossScore">Cross: 0</p></div>
+        
+        
     
     <div id="content"></div>
     <div class="button-container">
